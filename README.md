@@ -6,7 +6,7 @@
 
 ဤစာအုပ်သည် production manual မဟုတ်ပါ။ Framework documentation ကို မြန်မာလိုပြန်ဆိုထားသော report လည်းမဟုတ်ပါ။ Agentic AI ကို မြန်မာ Developer တစ်ယောက်က ဘယ်လိုစဉ်းစားရမလဲ၊ Tool တစ်ခု၏အန္တရာယ်ကို ဘယ်လိုမြင်ရမလဲ၊ Agent Loop နှင့် Harness ကို ဘယ်လိုခွဲသိရမလဲ ဆိုသည့် အခြေခံလမ်းပြစာအုပ်ဖြစ်သည်။
 
-ဖတ်ရန်အစမှာ `chapters/00-license.md` နှင့် `chapters/00-preface.md` ဖြစ်သည်။ Chapter 12 မှ 15 အထိသည် မဖြုတ်မရသော repo-backed case study လေးခုဖြစ်သည်။
+ဖတ်ရန်အစမှာ `chapters/00-license.md` နှင့် `chapters/00-preface.md` ဖြစ်သည်။ Chapter 12 မှ 15 အထိသည် repo-backed case study လေးခုဖြစ်သည်။
 
 1. [`P-2`](https://github.com/htooayelwinict/P-2) — state boundary နှင့် zero-trust handoff
 2. [`travis-2`](https://github.com/htooayelwinict/travis-2) — controlled runtime
@@ -24,6 +24,5 @@ Full license note ကို [`LICENSE.md`](book/LICENSE.md) နှင့် [`ch
 ### ဖိုင်သုံးစာရင်း / File references
 
 - [book/README.md](book/README.md)
-- [book/STYLE_GUIDE.md](book/STYLE_GUIDE.md)
 - [book/chapters/00-license.md](book/chapters/00-license.md)
 - [book/chapters/00-preface.md](book/chapters/00-preface.md)
