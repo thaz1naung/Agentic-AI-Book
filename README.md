@@ -143,6 +143,8 @@ Manuscript/chapter ကို အကြီးစား rewrite လုပ်ထာ
 
 အသေးစိတ် guide ကို [CONTRIBUTING.md](CONTRIBUTING.md) မှာ ဖတ်နိုင်ပါတယ်။
 
+Community feedback နဲ့ accepted issue reports တွေကို [CONTRIBUTORS.md](CONTRIBUTORS.md) မှာ မှတ်တမ်းတင်ထားပါတယ်။
+
 ## Roadmap Summary / ရှေ့ဆက်လုပ်မည့်အရာများ
 
 လက်ရှိ roadmap focus:
