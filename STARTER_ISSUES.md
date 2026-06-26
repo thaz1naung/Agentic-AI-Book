@@ -54,7 +54,7 @@ These are suggested issues the maintainer can manually open in GitHub.
 
 **Description:** Propose a practical LangGraph example that explains nodes, edges, state, and retry behavior.
 
-**Suggested label:** `technical correction`
+**Suggested label:** `documentation`
 
 **Difficulty:** Intermediate / Advanced
 
