@@ -4,19 +4,19 @@
 > BrowserSurfer Bot သည် DeepAgents abstraction အောက်တွင် LangGraph-style runtime, LangChain StructuredTool registry, Playwright browser tools, thread state, trajectory memory, RAG planning, reflection, metrics စသည်တို့ကိုပေါင်းထားသော browser-agent prototype ဖြစ်သည်။
 >
 > **Browser tool များ ဘာကြောင့်စွမ်းအားကြီးသလဲ**  
-> Browser tool သည်စာဖတ်ရုံမဟုတ်။ Page ဖွင့်နိုင်သည်။ Snapshot ဖတ်နိုင်သည်။ Button နှိပ်နိုင်သည်။ Text ရိုက်နိုင်သည်။ Form state ပြောင်းနိုင်သည်။ JavaScript tool ပေးထားလျှင် page အတွင်းပိုင်းကိုလည်းထိနိုင်သည်။
+> Browser tool သည် စာဖတ်ရုံမဟုတ်။ Page ဖွင့်နိုင်သည်။ Snapshot ဖတ်နိုင်သည်။ Button နှိပ်နိုင်သည်။ Text ရိုက်နိုင်သည်။ Form state ပြောင်းနိုင်သည်။ JavaScript tool ပေးထားလျှင် page အတွင်းပိုင်းကိုလည်းထိနိုင်သည်။
 >
 > **Browser tool များ ဘာကြောင့်အန္တရာယ်ရှိသလဲ**  
-> Browser သည်စာအုပ်တစ်အုပ်မဟုတ်။ လှုပ်ရှားနေသောမြို့တစ်မြို့ဖြစ်သည်။ မြို့ထဲကကြော်ငြာစာ၊ button label, aria label, console message, network result အားလုံးသည် trusted instruction မဟုတ်။ Raw snapshot, shared session, stale refs, arbitrary JavaScript, incomplete HITL, weak output boundary တို့ကြောင့် indirect prompt injection နှင့် unsafe action risk များရှိသည်။
+> Browser သည် စာအုပ်တစ်အုပ်မဟုတ်။ လှုပ်ရှားနေသောမြို့တစ်မြို့ဖြစ်သည်။ မြို့ထဲကကြော်ငြာစာ၊ button label, aria label, console message, network result အားလုံးသည် trusted instruction မဟုတ်။ Raw snapshot, shared session, stale refs, arbitrary JavaScript, incomplete HITL, weak output boundary တို့ကြောင့် indirect prompt injection နှင့် unsafe action risk များရှိသည်။
 >
 > **လုံခြုံရေးသတိပေးချက်**  
 > ဤအခန်းသည် သင်ကြားရေးအတွက်သာဖြစ်သည်။ Browser agent ကိုဘယ်လိုခိုင်မာအောင်ထိန်းမလဲ၊ ဘယ်နေရာတွေမှာအန္တရာယ်ပေါ်နိုင်သလဲဆိုတာကိုဖွင့်ပြသည်။ အန္တရာယ်ရှိသော platform misuse workflow များ၊ account/security misuse workflow များ၊ သို့မဟုတ် rule-avoidance workflow များကိုမသင်ပေးပါ။ Repo ထဲရှိ `FacebookSurfer` သည် internal codename ဖြစ်ပြီး public chapter name သည် **BrowserSurfer Bot** ဖြစ်သည်။
 
 ### Browser သည် စာမျက်နှာမဟုတ်၊ လှုပ်ရှားနေသောမြို့ဖြစ်သည်
 
-Chatbot တစ်ခုသည်စာပြန်သည်။ Browser agent တစ်ခုသည်မြို့ထဲဝင်သွားသည်။ လမ်းပေါ်ရှိဆိုင်းဘုတ်များကိုဖတ်သည်။ တံခါးများကိုမြင်သည်။ Button များကိုနှိပ်နိုင်သည်။ Form များကိုဖြည့်နိုင်သည်။ Session ရှိလျှင်အရင်ကဖွင့်ထားသောအခန်းထဲအထိဝင်နိုင်သည်။ ဤသည်မှာ browser agent ၏အလှလည်းဖြစ်သည်။ အန္တရာယ်လည်းဖြစ်သည်။
+Chatbot တစ်ခုသည် စာပြန်သည်။ Browser agent တစ်ခုသည် မြို့ထဲဝင်သွားသကဲ့သို့ page ထဲဝင်ပြီး အရာများကို လုပ်ဆောင်နိုင်သည်။ လမ်းပေါ်ရှိဆိုင်းဘုတ်များကို ဖတ်သည်။ တံခါးများကို မြင်သည်။ Button များကိုနှိပ်နိုင်သည်။ Form များကိုဖြည့်နိုင်သည်။ Session ရှိလျှင်အရင်ကဖွင့်ထားသောအခန်းထဲအထိဝင်နိုင်သည်။ ဤသည်မှာ browser agent ၏အလှလည်းဖြစ်သည်။ အန္တရာယ်လည်းဖြစ်သည်။
 
-ဤ chapter ကိုဖတ်ရာတွင် အရေးကြီးဆုံးအချက်တစ်ခုကို အစကတည်းက မှတ်ထားပါ။ BrowserSurfer Bot ကို platform သုံးနည်းသင်ခန်းစာအဖြစ်မဖတ်သင့်ချေ။ ဤစာအုပ်သည် “ဘယ် website ပေါ်မှာ ဘယ် button ကိုနှိပ်” ဆိုသော လမ်းညွှန်မဟုတ်။ Browser ကို Agent ၏ လက် ဖြစ်အောင် ပေးလိုက်သောအခါ runtime, state, tools, memory, planning, security boundary များ မည်သို့ပြဿနာဖြစ်လာသနည်းကို ဖွင့်ပြသော case study ဖြစ်သည်။
+ဤ chapter ကို ဖတ်ရာတွင် အရေးကြီးဆုံးအချက်တစ်ခုကို အစကတည်းက မှတ်ထားပါ။ BrowserSurfer Bot ကို platform သုံးနည်းသင်ခန်းစာအဖြစ်မဖတ်သင့်ချေ။ ဤစာအုပ်သည် “ဘယ် website ပေါ်မှာ ဘယ် button ကိုနှိပ်” ဆိုသော လမ်းညွှန်မဟုတ်။ Browser ကို Agent ၏ လက် ဖြစ်အောင် ပေးလိုက်သောအခါ runtime, state, tools, memory, planning, security boundary များ မည်သို့ပြဿနာဖြစ်လာသနည်းကို ဖွင့်ပြသော case study ဖြစ်သည်။
 
 Repo ထဲတွင် `FacebookSurferAgent` ဟူသော class name ကိုတွေ့ရမည်။ ထိုနာမည်သည် internal codename ဖြစ်သည်။ chapter title တွင် BrowserSurfer Bot ဟုခေါ်ဆိုထားသည်။ Internal codename ကိုဖော်ပြရခြင်းမှာ source file ကိုဖတ်သောအခါ reader မလမ်းပျောက်ရန်သာဖြစ်သည်။ chapter title တွင် နာမည်ပြောင်းထားရခြင်းမှာ မလိုလားအပ်သော ကိစ္စရပ်များကို သွယ်ဝှိုက်၍ကာကွယ်ထားခြင်း ဖြစ်ကြောင်း နားလည်စေချင်ပါသည်။ 
 

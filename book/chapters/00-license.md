@@ -28,4 +28,4 @@ For Myanmar publication, this license notice is the author's public permission s
 
 စာအုပ်အတွင်းပါ third-party materials, screenshots, logos, quoted text, repository code, documentation excerpts, images များသည် သီးခြား rights/license များရှိနိုင်သည်။ ထိုအရာများသည် ဤစာအုပ်၏ CC BY-NC-SA 4.0 license အောက်သို့ အလိုအလျောက်မဝင်ပါ။
 
-ဤလိုင်စင်စာသည် publication clarity အတွက်ဖြစ်သည်။ Legal advice မဟုတ်ပါ။
+ဤလိုင်စင်စာသည် publication clarity အတွက် ဖြစ်သည်။ Legal advice မဟုတ်ပါ။

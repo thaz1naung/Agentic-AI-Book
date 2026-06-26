@@ -7,7 +7,7 @@
 > appv22 သည် final worker kernel မဟုတ်။ production-ready စနစ်မဟုတ်။ "ပြီးပြီ၊ ယုံပြီးသုံးပါ" ဟုကြေညာရန်မဟုတ်။ အလွန်သစ်သေးသော, gap များကိုလည်းဖုံးမထားသော, test-backed prototype lab တစ်ခုသာဖြစ်သည်။
 >
 > **Pi/Hermes နှင့် ဆက်စပ်ပုံ**  
-> appv22 သည် Pi ကို Python package အဖြစ် import လုပ်ထားခြင်းမဟုတ်။ Hermes ကိုလည်း dependency အဖြစ်ဆွဲသုံးထားခြင်းမဟုတ်။ စာရေးသူက Pi ၏ coding-agent loop / TUI / provider abstraction idea များနှင့် Hermes ၏ compaction / overflow recovery / tool-loop guardrail idea များကိုဖတ်ပြီး Python ဖြင့်ပြန်တည်ဆောက်စမ်းထားခြင်းဖြစ်သည်။
+> appv22 သည် Pi ကို Python package အဖြစ် import လုပ်ထားခြင်းမဟုတ်။ Hermes ကိုလည်း dependency အဖြစ်ဆွဲသုံးထားခြင်းမဟုတ်။ စာရေးသူက Pi ၏ coding-agent loop / TUI / provider abstraction idea များနှင့် Hermes ၏ compaction / overflow recovery / tool-loop guardrail idea များကို ဖတ်ပြီး Python ဖြင့်ပြန်တည်ဆောက်စမ်းထားခြင်းဖြစ်သည်။
 >
 > **သတိထားရန်**  
 > OpenClaw နှင့် Pi ကြားတွင် source-level ဆက်စပ်မှုရှိသည်။ OpenClaw ၏ third-party notice တွင် OpenClaw ၏ implementation portions အချို့ကို Pi/pi-mono မှ adapted လုပ်ထားကြောင်းနှင့် `@earendil-works/pi-tui` ကို terminal UI rendering အတွက် depend လုပ်ထားကြောင်းဖော်ပြထားသည်။ သို့သော် "OpenClaw သည် Pi ပဲ" ဟုတစ်ကြောင်းတည်းဖြင့်ချုပ်ပြောခြင်းသည် over-simplified claim ဖြစ်သောကြောင့် fact အဖြစ်မရေးသင့်ချေ။
@@ -16,7 +16,7 @@
 
 ထို့ကြောင့် appv22 ကိုဖတ်ရာတွင် အားပေးစာအဖြစ်လည်းမဖတ်သင့်ချေ။ အပြစ်ရှာစာအဖြစ်လည်းမဖတ်သင့်ချေ။ Runtime တစ်ခုသည် loop တစ်ခုရေးလိုက်ရုံဖြင့် မဖြစ်ကြောင်းကို လက်တွေ့ codebase တစ်ခုထဲကနေ ကြည့်ရန်ဖြစ်သည်။
 
-Agent တစ်ခုကို ပထမဆုံးရေးသောနေ့တွင် အားလုံးက လှပနေတတ်သည်။ `while` loop တစ်ခုရှိသည်။ Model ကို ခေါ်သည်။ Tool result ကို ပြန်ထည့်သည်။ အဖြေတစ်ခု ထွက်လာသည်။ ထိုအခါ လူတော်တော်များများက "Agent တခုဖန်တီးနိုင်ပြီ" ဟု ထင်တတ်ကြသည်။
+Agent တစ်ခုကို ပထမဆုံးရေးသောနေ့တွင် အားလုံးက လှပနေတတ်သည်။ `while` loop တစ်ခုရှိသည်။ Model ကို ခေါ်သည်။ Tool result ကို ပြန်ထည့်သည်။ အဖြေတစ်ခု ထွက်လာသည်။ ထိုအခါ လူတော်တော်များများက "Agent တစ်ခုဖန်တီးနိုင်ပြီ" ဟု ထင်တတ်ကြသည်။
 
 သို့သော် နောက်နေ့တွင် context window ပြည့်လာသည်။ Provider က error ပြန်သည်။ Tool တစ်ခုတည်းကို agent ကထပ်ခါထပ်ခါခေါ်နေသည်။ User က "အခုဘာဖြစ်နေတာလဲ" ဟုမေးသောအခါ terminal ထဲတွင်ရှင်းရှင်းမမြင်ရ။ Session ပြန်ဖွင့်လိုက်လျှင် ယခင် state ကိုယုံရမရမသေချာတော့။
 

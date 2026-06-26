@@ -4,7 +4,7 @@
 > Travis-2 သည် model-generated TypeScript Playwright code ကို `run_playwright_code` tool မှတစ်ဆင့် bounded execution interface ထဲတွင်မောင်းနှင်သော controlled runtime ဖြစ်သည်။ အဓိက lesson သည် code generation မဟုတ်။ Generated code execution ကို isolation, validation, result-quality semantics, state routing, middleware policy plane တို့ဖြင့်ထိန်းခြင်းဖြစ်သည်။
 >
 > **Outer graph + inner runtime က ဘာကြောင့်လိုသလဲ**  
-> Inner LangChain `create_agent` runtime သည် model/tool execution ကိုလုပ်သည်။ Outer LangGraph `StateGraph` သည် deterministic control routing ကိုလုပ်သည်။ `run_agent -> evaluate -> replan/finalize` flow သည် execution output ကို policy signal အပေါ်မူတည်၍ဆက်လုပ်မလား၊ replan လုပ်မလား၊ finalize လုပ်မလားဆုံးဖြတ်စေသည်။
+> Inner LangChain `create_agent` runtime သည် model/tool execution ကို လုပ်သည်။ Outer LangGraph `StateGraph` သည် deterministic control routing ကို လုပ်သည်။ `run_agent -> evaluate -> replan/finalize` flow သည် execution output ကို policy signal အပေါ်မူတည်၍ဆက်လုပ်မလား၊ replan လုပ်မလား၊ finalize လုပ်မလားဆုံးဖြတ်စေသည်။
 >
 > **Middleware က ဘာကြောင့် policy plane ဖြစ်သလဲ**  
 > Prompt instruction သက်သက်သည် runtime control မဟုတ်။ Travis-2 တွင် model-call limit, semantic loop detection, context editing, summarization, tool-output sanitization, skills injection/signing စသည်တို့ကို middleware အဖြစ်တပ်ထားသည်။ Policy သည် model response ထဲမဟုတ်၊ runtime execution path ထဲတွင်ရှိသည်။
@@ -16,9 +16,9 @@
 
 Travis-2 ၏အဓိကရည်ရွယ်ချက်မှာ LLM ကို browser/data automation အတွက် controlled runtime ထဲတွင်အသုံးပြုရန်ဖြစ်သည်။ User က live web data, current information, page content, API response စသောအရာများကိုလိုသောအခါ model သည် answer ကို memory မှခန့်မှန်းမပြောသင့်။ ၎င်းသည် Playwright TypeScript test တစ်ခုရေးပြီး `run_playwright_code` tool ကိုခေါ်နိုင်သည်။
 
-ဤနေရာတွင် beginner များအတွက်အလွယ်ဆုံးမှားနိုင်သောအချက်တစ်ခုရှိသည်။ Model က TypeScript code ရေးပေးနိုင်သည်ဆိုသည်ကိုမြင်သည်နှင့် “ဟုတ်ပြီ၊ code ရေးတတ်ပြီ” ဟုဝမ်းသာသွားတတ်သည်။ Travis-2 ၏သင်ခန်းစာမှာ ထိုနေရာတွင်မရပ်ရန်ဖြစ်သည်။ Code ရေးလာခြင်းသည်အလုပ်စခြင်းသာဖြစ်သည်။ ထို code ကိုဘယ်အခန်းထဲတွင်မောင်းမလဲ၊ မောင်းမီဘာစစ်မလဲ၊ မောင်းပြီးထွက်လာသော result ကိုဘယ်လိုဖတ်မလဲဆိုတာက runtime engineering ဖြစ်သည်။
+ဤနေရာတွင် beginner များအတွက်အလွယ်ဆုံးမှားနိုင်သောအချက်တစ်ခုရှိသည်။ Model က TypeScript code ရေးပေးနိုင်သည်ဆိုသည်ကို မြင်သည်နှင့် “ဟုတ်ပြီ၊ code ရေးတတ်ပြီ” ဟုဝမ်းသာသွားတတ်သည်။ Travis-2 ၏သင်ခန်းစာမှာ ထိုနေရာတွင်မရပ်ရန်ဖြစ်သည်။ Code ရေးလာခြင်းသည် အလုပ်စခြင်းသာဖြစ်သည်။ ထို code ကိုဘယ်အခန်းထဲတွင်မောင်းမလဲ၊ မောင်းမီဘာစစ်မလဲ၊ မောင်းပြီးထွက်လာသော result ကိုဘယ်လိုဖတ်မလဲဆိုတာက runtime engineering ဖြစ်သည်။
 
-ဤ design တွင် model-generated code ကို trusted code အဖြစ်မယူသင့်ချေ။ Generated TypeScript သည် untrusted execution input ဖြစ်သည်။ ထို့ကြောင့် runtime သည်အောက်ပါမေးခွန်းများကိုအရင်ဖြေထားရမည်။
+ဤ design တွင် model-generated code ကို trusted code အဖြစ်မယူသင့်ချေ။ Generated TypeScript သည် untrusted execution input ဖြစ်သည်။ ထို့ကြောင့် runtime သည်အောက်ပါမေးခွန်းများကို အရင်ဖြေထားရမည်။
 
 - Code ကိုဘယ် interface မှတစ်ဆင့်လက်ခံသလဲ။
 - Code run သည့် environment သည် host နှင့်ဘယ်လိုခွဲထားသလဲ။

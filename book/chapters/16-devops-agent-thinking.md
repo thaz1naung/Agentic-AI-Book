@@ -2,11 +2,11 @@
 
 ### Cloud သည် ကစားကွင်းမဟုတ်
 
-Agentic AI ကို DevOps ထဲသုံးမည်ဆိုလျှင်စိတ်လှုပ်ရှားစရာများစွာရှိသည်။ Agent သည် CI logs ဖတ်နိုင်သည်။ Terraform plan ကိုရှင်းပြနိုင်သည်။ CloudWatch log အရှည်ကြီးကိုအကျဉ်းချုပ်နိုင်သည်။ Runbook ဖတ်ပြီး next step အကြံပြုနိုင်သည်။ Pull request failure ကို file/line ဖြင့်ချိတ်နိုင်သည်။ Cost anomaly အကြောင်း report ထုတ်နိုင်သည်။
+Agentic AI ကို DevOps ထဲသုံးမည်ဆိုလျှင်စိတ်လှုပ်ရှားစရာများစွာရှိသည်။ Agent သည် CI logs ကို ဖတ်နိုင်သည်။ Terraform plan ကိုရှင်းပြနိုင်သည်။ CloudWatch log အရှည်ကြီးကိုအကျဉ်းချုပ်နိုင်သည်။ Runbook ဖတ်ပြီး next step အကြံပြုနိုင်သည်။ Pull request failure ကို file/line ဖြင့်ချိတ်နိုင်သည်။ Cost anomaly အကြောင်း report ထုတ်နိုင်သည်။
 
-သို့သော် DevOps သည်ကစားကွင်းမဟုတ်။ Terraform apply မှားလျှင်เงินจริงကုန်နိုင်သည်။ AWS permission မှားလျှင် resource leak ဖြစ်နိုင်သည်။ CI log ထဲမှ secret ထွက်သွားနိုင်သည်။ Production database ကိုမတော်တဆထိနိုင်သည်။ DNS record တစ်ကြောင်းမှားလျှင် service တစ်ခုလုံးပျောက်နိုင်သည်။
+သို့သော် DevOps သည် ကစားကွင်းမဟုတ်။ Terraform apply မှားလျှင်เงินจริงကုန်နိုင်သည်။ AWS permission မှားလျှင် resource leak ဖြစ်နိုင်သည်။ CI log ထဲမှ secret ထွက်သွားနိုင်သည်။ Production database ကိုမတော်တဆထိနိုင်သည်။ DNS record တစ်ကြောင်းမှားလျှင် service တစ်ခုလုံးပျောက်နိုင်သည်။
 
-ထို့ကြောင့် DevOps Agent Thinking ဆိုသည်မှာ "Agent ကို cloud tool ပေးလိုက်မယ်" ဟူသောအတွေးမဟုတ်။ Permission, read/write separation, human approval, audit log, rollback, blast radius, source evidence တို့ကိုအရင်စဉ်းစားခြင်းဖြစ်သည်။
+ထို့ကြောင့် DevOps Agent Thinking ဆိုသည်မှာ "Agent ကို cloud tool ပေးလိုက်မယ်" ဟူသောအတွေးမဟုတ်။ Permission, read/write separation, human approval, audit log, rollback, blast radius, source evidence တို့ကို အရင်စဉ်းစားခြင်းဖြစ်သည်။
 
 ဤအခန်းသည် production manual မဟုတ်။ Beginner-friendly engineer handbook အဖြစ် DevOps agent ကိုဘယ်လိုစဉ်းစားရမည်ဆိုတာသင်ပေးရန်ဖြစ်သည်။
 
@@ -292,7 +292,7 @@ Agent flow:
 
 DevOps Agent Thinking သည် cloud tool များပေးခြင်းမဟုတ်။ Read-only first, least privilege, approval-gated mutation, evidence-based verifier, audit log, redaction, recovery engineering တို့ပေါင်းစပ်ခြင်းဖြစ်သည်။
 
-P-2 သည် privilege separation ကိုသင်ပေးသည်။ Travis-2 သည် model ရေးလာသော code ကို sandbox/tool-result contract ဖြင့်ထိန်းသည့် runtime စည်းကမ်းကိုသင်ပေးသည်။ BrowserSurfer သည် external tool output risk ကိုသင်ပေးသည်။ appv22 သည် recovery engineering ကိုသင်ပေးသည်။
+P-2 သည် privilege separation ကို သင်ပေးသည်။ Travis-2 သည် model ရေးလာသော code ကို sandbox/tool-result contract ဖြင့်ထိန်းသည့် runtime စည်းကမ်းကို သင်ပေးသည်။ BrowserSurfer သည် external tool output risk ကို သင်ပေးသည်။ appv22 သည် recovery engineering ကို သင်ပေးသည်။
 
 Beginner developer အနေဖြင့် DevOps agent ကိုစမည်ဆိုပါက Terraform apply လုပ်တာမျိုးနဲ့မစပါနှင့်။ CI failure summary, Terraform plan explanation, log triage ကဲ့သို့ read-only tasks မှစပါ။ စာရေးတော်ကိုမြေပုံဖတ်တတ်အောင်သင်ပါ။ နန်းတော်သော့ကိုနောက်မှသာစဉ်းစားပါလော့။
 

@@ -38,7 +38,7 @@
 
 ဤစာအုပ်ကို Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) လိုင်စင်ဖြင့် ဖြန့်ချိထားသည်။ သီးခြားဖော်ပြထားသော third-party materials, screenshots, logos, quoted text, repository code, documentation excerpts, images များသည် ၎င်းတို့၏သီးခြား rights/license များရှိနိုင်သည်။
 
-Full license note ကို `book/LICENSE.md` နှင့် `book/chapters/00-license.md` တွင်ဖတ်နိုင်သည်။ ဤလိုင်စင်ဖော်ပြချက်သည် publication clarity အတွက်ဖြစ်ပြီး legal advice မဟုတ်ပါ။
+Full license note ကို `book/LICENSE.md` နှင့် `book/chapters/00-license.md` တွင်ဖတ်နိုင်သည်။ ဤလိုင်စင်ဖော်ပြချက်သည် publication clarity အတွက် ဖြစ်ပြီး legal advice မဟုတ်ပါ။
 
 ### ဆက်ဖတ်ရန် Official Docs များ
 

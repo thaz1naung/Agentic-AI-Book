@@ -2,7 +2,7 @@
 
 ### စာဖတ်ပြီးရပ်လျှင် စာရေးတော်၏လက်ကို မမြင်ရ
 
-Agentic AI ကိုစာအုပ်ဖတ်ရုံဖြင့်မကျွမ်းကျင်နိုင်။ Code ရေးရမည်။ Tool boundary စမ်းရမည်။ Prompt injection test ထည့်ရမည်။ Memory leak စမ်းရမည်။ Replan loop ကိုမိမိလက်ဖြင့်မြင်ရမည်။ သို့သော် beginner အနေဖြင့် real browser account, real cloud account, production secrets များနှင့်စမလုပ်သင့်။ Local safe lab များမှစရမည်။
+Agentic AI ကို စာအုပ်ဖတ်ရုံဖြင့်မကျွမ်းကျင်နိုင်။ Code ရေးရမည်။ Tool boundary စမ်းရမည်။ Prompt injection test ထည့်ရမည်။ Memory leak စမ်းရမည်။ Replan loop ကိုမိမိလက်ဖြင့်မြင်ရမည်။ သို့သော် beginner အနေဖြင့် real browser account, real cloud account, production secrets များနှင့်စမလုပ်သင့်။ Local safe lab များမှစရမည်။
 
 ဤ lab များသည် production system မဟုတ်။ သင်ခန်းစာဖြစ်သည်။ Lab တစ်ခုစီတွင် pattern တစ်ခုသာမှတ်ပါ။
 
@@ -10,7 +10,7 @@ Agentic AI ကိုစာအုပ်ဖတ်ရုံဖြင့်မကျ
 Build -> Safe Failure Test -> Fix -> Reflect
 ```
 
-Build သည်စနစ်ငယ်တစ်ခုဆောက်ခြင်းဖြစ်သည်။ Safe Failure Test သည် local/fake environment ထဲတွင်အန္တရာယ်ကိုထည့်ကြည့်ခြင်းဖြစ်သည်။ Fix သည် boundary ထည့်ခြင်းဖြစ်သည်။ Reflect သည်ဘာသင်လိုက်သလဲပြန်ရေးခြင်းဖြစ်သည်။
+Build သည် စနစ်ငယ်တစ်ခုဆောက်ခြင်းဖြစ်သည်။ Safe Failure Test သည် local/fake environment ထဲတွင်အန္တရာယ်ကိုထည့်ကြည့်ခြင်းဖြစ်သည်။ Fix ဆိုသည်မှာ boundary ထည့်ပြီး ပြန်ထိန်းခြင်းဖြစ်သည်။ Reflect ဆိုသည်မှာ ဘာသင်လိုက်သလဲကို ပြန်ရေးခြင်းဖြစ်သည်။
 
 ### Lab 1 — Toy Agent Loop
 
@@ -267,7 +267,7 @@ PII redaction ထည့်ပါ။
 
 Reflection function တစ်ခုရေးပြီး evidence မရှိလျှင် reject လုပ်ပါ။
 
-Repo lesson: BrowserSurfer TrajectoryCallbackHandler, appv22 tests/faux provider. Faux provider ဆိုသည်မှာ real model API မခေါ်ဘဲ test အတွက်ပြန်ဖြေသော provider အတုဖြစ်သည်။
+Repo lesson: BrowserSurfer TrajectoryCallbackHandler, appv22 tests/faux provider. Faux provider ဆိုသည်မှာ real model API မခေါ်ဘဲ test အတွက် ပြန်ဖြေသော provider အတုဖြစ်သည်။
 
 ### Lab 9 — DevOps Read-only Assistant
 
@@ -335,7 +335,7 @@ v0.2 fix task ဘာရေးမလဲ။
 
 ### နိဂုံး — Lab သည် စာအုပ်ကို လက်ဖြင့်ဖတ်ခြင်း
 
-Mini labs များသည်ဤစာအုပ်၏သင်ခန်းစာများကိုလက်တွေ့မြင်စေသည်။ Loop, Harness, MCP/Skill/Sub-agent, Prompt/Context/RAG, Planner/Worker/Verifier, Tool Broker, Observability, Safety, P-2 bridge, Travis-2 runtime, BrowserSurfer hardening, appv22 recovery, DevOps read-only thinking တို့ကိုလက်ဖြင့်စမ်းနိုင်သည်။
+Mini labs များသည် ဤစာအုပ်၏သင်ခန်းစာများကိုလက်တွေ့မြင်စေသည်။ Loop, Harness, MCP/Skill/Sub-agent, Prompt/Context/RAG, Planner/Worker/Verifier, Tool Broker, Observability, Safety, P-2 bridge, Travis-2 runtime, BrowserSurfer hardening, appv22 recovery, DevOps read-only thinking တို့ကိုလက်ဖြင့်စမ်းနိုင်သည်။
 
 စာဖတ်သူသည် lab များကိုအကုန်ပြီးမှသာ agent expert ဖြစ်သွားမည်မဟုတ်။ သို့သော် lab တစ်ခုချင်းစီပြီးတိုင်း "AI ကလုပ်သွားတယ်" ဟူသောအမြင်မှ "ဘယ် boundary ကဘာကိုထိန်းထားသလဲ" ဟူသော engineer အမြင်သို့တဖြည်းဖြည်းပြောင်းလာမည်။
 
