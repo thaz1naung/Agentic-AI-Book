@@ -4,6 +4,26 @@
 
 ဒီ repo ရဲ့ အဓိကရည်ရွယ်ချက်က Agent, Tool Calling, RAG, MCP, Context Engineering, Coding Agent, DevOps Automation စတာတွေကို "ဘယ်လိုစဉ်းစားရမလဲ" ဆိုတဲ့ angle ကနေ ရှင်းပြဖို့ပါ။ Framework documentation ကို တိုက်ရိုက်ဘာသာပြန်ထားတာ မဟုတ်ပါ။ Production manual လည်း မဟုတ်ပါ။ Beginner ကနေ intermediate developer အထိ ဖတ်လို့ရအောင် practical thinking guide အနေနဲ့ ပြင်ဆင်ထားပါတယ်။
 
+## Read Online / Online မှ ဖတ်ရန်
+
+စာဖတ်သူများအနေဖြင့် ဒီစာအုပ်ကို FOSS Myanmar မှာလည်း ဖတ်နိုင်ပါတယ်:
+
+[Agentic AI Book on FOSS Myanmar](https://fossmyanmar.org/ai/opensource/education/2026/06/28/agentic-ai-book/)
+
+## Version / လက်ရှိပြင်ဆင်ထားသောအခြေအနေ
+
+လက်ရှိ repo ထဲရှိ manuscript သည် reader feedback အပေါ်မူတည်ပြီး chapter readability pass ပြုလုပ်ထားသော version ဖြစ်ပါတယ်။
+
+Current fixed/readability-reviewed chapters:
+
+- Chapters 08 to 11: runtime pattern, tool broker, observability, and safety wording cleanup
+- Chapters 12 to 15: repo-backed case study chapters rewritten for clearer practice flow
+- Chapter 16: DevOps agent thinking section clarified with safer read-only practice guidance
+- Chapter 17: mini labs expanded with clearer goals, safe failure tests, and expected results
+- Chapters 18 to 19: roadmap and references wording cleanup
+
+အထူးသဖြင့် case study chapters ဖြစ်သော Chapter 12 မှ Chapter 16 အထိကို reader များ လက်တွေ့လိုက်ဖတ်ရလွယ်စေရန် ပြန်စစ်ပြီး ပြင်ဆင်ထားပါတယ်။
+
 ## What This Book Is / ဒီစာအုပ်က ဘာလဲ
 
 Agentic AI Book က AI agent system တွေကို developer mindset နဲ့ လေ့လာနိုင်အောင် စုစည်းထားတဲ့ manuscript project ပါ။

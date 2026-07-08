@@ -1,8 +1,8 @@
 # 19-references
 
-စာအုပ်တစ်အုပ်တွင် ကိုးကားချက်များသည် အလှဆင်မဟုတ်။ စာဖတ်သူက "ဒီစကားကို ဘယ်ကယူထားသလဲ" ဟု မေးနိုင်ရမည်။ ထို့ကြောင့် ဤအခန်းတွင် မူရင်းစာကြမ်းအခြေခံများ၊ case study repo များ၊ နှင့် ဆက်ဖတ်ရန် official/public reference များကို ခွဲထားသည်။
+စာအုပ်တစ်အုပ်တွင် ကိုးကားချက်များသည် အလှဆင်မဟုတ်ပါ။ စာဖတ်သူက "ဒီစကားကို ဘယ်ကယူထားသလဲ" ဟုမေးနိုင်ရပါမည်။ ထို့ကြောင့် ဒီအခန်းတွင် မူရင်းစာကြမ်းအခြေခံများ၊ case study repo များ၊ နှင့် ဆက်ဖတ်ရန် official/public reference များကိုခွဲထားသည်။
 
-ဤစာအုပ်၏ case study အခန်းများသည် အောက်ပါ public repo များကို အခြေခံထားသည်။ Framework နှင့် tool အကြောင်းများအတွက်တော့ official documentation များကို ဆက်ဖတ်ရန်လမ်းကြောင်းအဖြစ် ထည့်ထားသည်။ မသေချာသေးသော public hype claim များကို စာအုပ်ထဲတွင် အတည်ပြုထားသလို မရေးဘဲ `[SOURCE_NEEDED]` ဟုသာထားသည်။
+ဒီစာအုပ်၏ case study အခန်းများသည် အောက်ပါ public repo များကိုအခြေခံထားသည်။ Framework နှင့် tool အကြောင်းများအတွက်တော့ official documentation များကို ဆက်ဖတ်ရန်လမ်းကြောင်းအဖြစ်ထည့်ထားသည်။ မသေချာသေးသော public hype claim များကို စာအုပ်ထဲတွင်အတည်ပြုထားသလိုမရေးဘဲ `[SOURCE_NEEDED]` ဟုသာထားသည်။
 
 ### မူရင်းစာကြမ်းအခြေခံများ
 
@@ -17,7 +17,7 @@
 - `prompts`
 - `models`
 
-ဤစာကြမ်းများသည် စာရေးသူ၏အသံ၊ ရည်ရွယ်ချက်၊ ကျေးဇူးတင်စာ၊ Agentic AI အခြေခံရှင်းလင်းချက်၊ Agent Loop/Harness report, Travis-2 နှင့် BrowserSurfer မူရင်းအခန်းများအတွက် အခြေခံအဖြစ် အသုံးပြုထားသော မှတ်တမ်းများဖြစ်သည်။
+ဒီစာကြမ်းများသည် စာရေးသူ၏အသံ၊ ရည်ရွယ်ချက်၊ ကျေးဇူးတင်စာ၊ Agentic AI အခြေခံရှင်းလင်းချက်၊ Agent Loop/Harness report, Travis-2 နှင့် BrowserSurfer မူရင်းအခန်းများအတွက် အခြေခံအဖြစ်သုံးထားသော မှတ်တမ်းများဖြစ်သည်။
 
 ### Case Study အတွက် Public Repo များ
 
@@ -30,7 +30,7 @@
 | appv22            | [https://github.com/htooayelwinict/allthebest](https://github.com/htooayelwinict/allthebest) |
 
 
-ဤ repo များသည် case study chapters 12-15 အတွက် အဓိကအထောက်အထားဖြစ်သည်။ Public article များထက် repo docs/code ကို ဦးစားပေးဖတ်သင့်သည်။ အသေးစိတ် source map ကို `book/references/SOURCE_NOTES.md` တွင် သီးခြားထားသည်။
+ဒီ repo များသည် case study chapters 12-15 အတွက် အဓိကအထောက်အထားဖြစ်သည်။ Public article များထက် repo docs/code ကိုဦးစားပေးဖတ်သင့်သည်။ အသေးစိတ် source map ကို `book/references/SOURCE_NOTES.md` တွင်သီးခြားထားသည်။
 
 ### License / လိုင်စင်
 

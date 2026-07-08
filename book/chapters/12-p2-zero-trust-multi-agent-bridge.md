@@ -1,30 +1,40 @@
 # 12-p2-zero-trust-multi-agent-bridge
 
-> **ဤ project က ဘာကိုပြသသလဲ**  
-> P-2 သည် high privilege Supervisor Agent နှင့် low privilege Customer Agent ကြားတွင် full state မပေးဘဲ minimum safe instruction သာဖြတ်သန်းစေသော zero-trust multi-agent bridge ကိုပြသည်။
+> **ဒီ project က ဘာကိုပြသသလဲ**
+> P-2 က Agent နှစ်ခုကြားတွင် "context အကုန်ပေးလိုက်ရင်လွယ်တယ်" ဆိုသောအမှားကိုတားပြထားသည်။ Supervisor Agent ကပိုမြင့်သောအာဏာရှိသည်။ Customer Agent က user-facing ဖြစ်သည်။ နှစ်ခုကြားတွင် full state မသွားရ။ လိုအပ်သောစာကြောင်းလောက်သာ bridge ကပြန်ရေးပြီးပို့ရသည်။
 >
-> **စာဖတ်သူ ဘာကိုယူသွားရမလဲ**  
-> Multi-agent handoff ကို message passing အဖြစ်မသာမြင်ဘဲ state projection, origin check, schema mismatch, scoped filesystem, control plane/execution plane ခွဲခြင်းအဖြစ်မြင်ရမည်။
+> **စာဖတ်သူ ဘာကိုယူသွားရမလဲ**
+> Multi-agent handoff ကို "message ပို့လိုက်တာ" လောက်နဲ့မကြည့်ပါနှင့်။ ဘယ် state field ဖြတ်သွားသလဲ၊ ဘယ် origin ကလာသလဲ၊ schema နှစ်ခုဘာကြောင့်မတူသလဲ၊ filesystem scope ဘယ်လိုကန့်ထားသလဲဆိုတာကိုကြည့်ပါ။
 >
-> **State boundary ဘာကြောင့်အရေးကြီးသလဲ**  
-> Secret မြင်ခွင့်ရှိသော Agent နှင့် user-facing Agent သည် full state မျှဝေလျှင် prompt injection သို့ logic bug တစ်ခုတည်းဖြင့် data leak ဖြစ်နိုင်သည်။
+> **State boundary ဘာကြောင့်အရေးကြီးသလဲ**
+> Secret မြင်ခွင့်ရှိသော Agent နှင့် user-facing Agent တို့ full state မျှဝေလိုက်လျှင် အန္တရာယ်ကချက်ချင်းကြီးလာသည်။ Prompt injection တစ်ကြောင်း၊ logic bug တစ်ခုတည်းနဲ့ internal note ထွက်သွားနိုင်သည်။
 >
-> **ဘာကို v0.2 သို့ချန်ထားသလဲ**  
-> Full code walkthrough, full security test details, implementation file တစ်ခုချင်းစီအသေးစိတ်ကို v0.2 သို့ရွှေ့ထားသည်။ ဤအခန်းသည် architecture lesson ကိုဦးစားပေးသည်။
+> **ဘာကို v0.2 သို့ချန်ထားသလဲ**
+> Full code walkthrough, security test အသေးစိတ်, implementation file တစ်ခုချင်းစီကို v0.2 တွင်ဆက်ချဲ့မည်။ ဒီအခန်းမှာတော့ P-2 ကိုဖတ်ရမည့်အဓိကမျက်စိကိုအရင်ပေးထားသည်။
+
+### ဒီ case study ကို လက်တွေ့လိုက်ဖတ်နည်း
+
+ဒီအခန်းကို theory အဖြစ်သာဖတ်လိုက်လျှင် အရေးကြီးဆုံးအချက်လွတ်သွားနိုင်သည်။ P-2 ကိုစဖတ်တဲ့အခါ code အကုန်လိုက်ဖတ်ဖို့မလိုသေးပါ။ အရင်ဆုံးမေးရမည့်မေးခွန်းက တစ်ခုပဲ။ State ဘယ်ကနေဘယ်ကိုသွားသလဲ။
+
+ပထမဆုံး `states.py` ကိုဖွင့်ပါ။ `GlobalState` နှင့် `UnsafeState` ကိုဘေးချင်းကပ်ရေးကြည့်ပါ။ Admin side မှာသာရှိသင့်သော field များကိုတစ်ဖက်တွင်ရေးပါ။ Customer side သို့သွားခွင့်ရှိသော field များကိုတစ်ဖက်တွင်ရေးပါ။ ဒီ table သေးသေးလေးမဆွဲနိုင်သေးလျှင် bridge lesson ကိုမမြင်သေးပါ။
+
+ပြီးရင် `nodes.py` ထဲက Bridge behavior ကိုရှာပါ။ Bridge က state အကုန်ကူးပေးနေလား။ မဟုတ်ဘဲ `admin_input` ကို `bridge_input` အဖြစ်သာပြန်ရေးနေလား။ ဒီမေးခွန်းကို code ထဲမှာပဲဖြေပါ။
+
+နောက်ဆုံး local/fake exercise တစ်ခုလုပ်ပါ။ `origin="supervisor"` ဖြစ်လျှင် `bridge_input` ထွက်ရပါမည်။ `origin="user_cli"` ဖြစ်လျှင် reject ဖြစ်ရပါမည်။ Output ထဲတွင် `secret_context` နှင့် `secret_key_ref` မပါရပါ။ ဒီသုံးချက်ကိုစစ်နိုင်လျှင် P-2 ၏ bridge lesson ကိုလက်တွေ့မြင်ပြီဟုပြောလို့ရပါသည်။
 
 ### အိမ်ရှင်ခန်းမှ ဧည့်ခန်းသို့ စာပို့ရာတွင်
 
-အိမ်တစ်အိမ်တွင်လျှို့ဝှက်ခန်းရှိသည်ဆိုပါစို့။ ထိုခန်းထဲတွင်စာရင်းစာအုပ်များ၊သော့များ၊ မိသားစုသီးသန့်စာရွက်များရှိသည်။ အိမ်ရှင်သည်ဧည့်သည်တစ်ယောက်ကိုဧည့်ခန်းတွင်တွေ့သည်။ ဧည့်သည်မေးသောမေးခွန်းကိုဖြေရန် အိမ်ရှင်သည်လျှို့ဝှက်ခန်းမှသတင်းအချို့ကိုအသုံးပြုရနိုင်သည်။ သို့သော် ဧည့်သည်ကိုလျှို့ဝှက်ခန်းထဲခေါ်သွား၍စာရွက်အကုန်ဖတ်ခွင့်ပေးမည်လား။
+အိမ်တစ်အိမ်တွင် လျှို့ဝှက်ခန်းရှိသည်ဆိုပါစို့။ ထိုခန်းထဲတွင် စာရင်းစာအုပ်များ၊ သော့များ၊ မိသားစုသီးသန့်စာရွက်များရှိသည်။ ဧည့်သည်တစ်ယောက်ကဧည့်ခန်းတွင်မေးခွန်းမေးလာသည်။ ဖြေရန်အတွက် အိမ်ရှင်သည်လျှို့ဝှက်ခန်းထဲကအချက်အလက်အချို့ကိုသုံးရနိုင်သည်။ သို့သော် ဧည့်သည်ကိုလျှို့ဝှက်ခန်းထဲခေါ်သွားပြီး စာရွက်အကုန်ဖတ်ခွင့်ပေးမည်လား။
 
 မပေးသင့်။ အိမ်ရှင်သည်လိုအပ်သောအချက်တစ်ကြောင်းသာဧည့်ခန်းသို့ပို့ရမည်။ ဧည့်ခန်းတွင်ပြောလို့ရသောစကားသာပို့ရမည်။ လျှို့ဝှက်စာရွက်ကိုအိတ်လိုက်မပို့ရ။
 
-P-2 ၏အဓိကသင်ခန်းစာသည် ဤသဘောပင်ဖြစ်သည်။ Supervisor Agent သည်လျှို့ဝှက်ခန်းထဲရှိသူဖြစ်သည်။ Customer Agent သည်ဧည့်ခန်းထဲရှိသူဖြစ်သည်။ Bridge Node သည်လျှို့ဝှက်ခန်းနှင့်ဧည့်ခန်းကြားရှိတံခါးစောင့်ဖြစ်သည်။ တံခါးစောင့်ကစာအိတ်အကုန်လွှဲပေးသူမဟုတ်။ ဧည့်ခန်းသို့သွားခွင့်ရှိသောစာသားကိုသာပြန်ရေးပေးသူဖြစ်သည်။
+P-2 ၏အဓိကသင်ခန်းစာကဒီမှာပါ။ Supervisor Agent ကလျှို့ဝှက်ခန်းထဲရှိသူပါ။ Customer Agent ကဧည့်ခန်းထဲရှိသူပါ။ Bridge Node ကအခန်းနှစ်ခန်းကြားကတံခါးစောင့်ပါ။ သူ့အလုပ်ကစာအိတ်အကုန်လွှဲပေးရန်မဟုတ်။ ဧည့်ခန်းထဲပြောလို့ရသောစာသားလောက်ကိုသာပြန်ရေးပေးရန်ဖြစ်သည်။
 
 ### Multi-agent ဟူသည် လူများလာခြင်းမဟုတ်
 
 Beginner များသည် multi-agent ဟုကြားလျှင် Agent အများကြီးထားခြင်းကိုသာစိတ်ဝင်စားတတ်သည်။ Planner Agent, Worker Agent, Critic Agent, Customer Agent, Admin Agent စသည်ဖြင့်နာမည်များများရှိလျှင်စနစ်ကြီးတစ်ခုဟုထင်တတ်သည်။ သို့သော် Agent များများရှိခြင်းသည် architecture ကောင်းခြင်းမဟုတ်။
 
-Agent တစ်ယောက်မှတစ်ယောက်သို့ဘာသွားသနည်း။ ဘယ် context သွားသနည်း။ ဘယ် secret သွားနိုင်သနည်း။ ဘယ် tool scope သွားသနည်း။ ဘယ် state field သွားသနည်း။ ဤမေးခွန်းများကိုမဖြေနိုင်လျှင် multi-agent system သည်လူများသော်လည်းစည်းကမ်းမရှိသောရုံးတစ်ရုံးနှင့်တူသည်။
+Agent တစ်ယောက်မှတစ်ယောက်သို့ဘာသွားသနည်း။ ဘယ် context သွားသနည်း။ ဘယ် secret ပါသွားနိုင်သနည်း။ ဘယ် tool scope ပါသွားသနည်း။ ဘယ် state field ဖြတ်သွားသနည်း။ ဒီမေးခွန်းများကိုမဖြေနိုင်လျှင် multi-agent system ဆိုတာ လူများသော်လည်းစည်းကမ်းမရှိသောရုံးတစ်ရုံးနှင့်တူသွားပါသည်။
 
 P-2 ၏အလှသည် Agent များစွာရှိခြင်းမဟုတ်။ Agent များကြား state ကိုမယုံခြင်းဖြစ်သည်။ Zero trust ဆိုသည်မှာ "ဘယ်သူမှမယုံ" ဟုကြွေးကြော်ခြင်းမဟုတ်။ Trust boundary ဖြတ်တိုင်း minimum data သာပေးခြင်း၊ origin ကိုစစ်ခြင်း၊ schema ကိုခွဲခြင်း၊ tool scope ကိုကန့်သတ်ခြင်းဖြစ်သည်။
 
@@ -81,7 +91,7 @@ Customer Agent
 public response
 ```
 
-ဤပုံတွင်အရေးကြီးဆုံးအရာမှာ Bridge Node ဖြစ်သည်။ Bridge သည် pipe မဟုတ်။ State အကုန်ကူးပေးသောပိုက်တစ်ချောင်းမဟုတ်။ Bridge သည် projection boundary ဖြစ်သည်။ High privilege state မှ low privilege state သို့လိုအပ်သောစာကြောင်းတစ်ကြောင်းသာပြန်မွေးပေးသည်။
+ဒီပုံတွင်အရေးကြီးဆုံးအရာမှာ Bridge Node ဖြစ်သည်။ Bridge သည် pipe မဟုတ်။ State အကုန်ကူးပေးသောပိုက်တစ်ချောင်းမဟုတ်။ Bridge သည် projection boundary ဖြစ်သည်။ High privilege state မှ low privilege state သို့လိုအပ်သောစာကြောင်းတစ်ကြောင်းသာပြန်မွေးပေးသည်။
 
 ### GlobalState နှင့် UnsafeState
 
@@ -138,7 +148,7 @@ Execution plane:
   model loop, tools, filesystem, response writing
 ```
 
-ဤခွဲခြင်းသည်အရေးကြီးသည်။ Execution plane ထဲတွင် model မှားသော်လည်း control plane boundary ကြောင့် secret leakage blast radius လျှော့နိုင်သည်။ ဤကို "လုံးဝလုံခြုံသည်" ဟုမဆိုရ။ "Logic bug တစ်ခုသည် security breach ဖြစ်မသွားစေရန် boundary ကူညီနိုင်သည်" ဟုမှတ်ရမည်။
+ဒီခွဲခြင်းကအရေးကြီးသည်။ Execution plane ထဲတွင် model မှားသော်လည်း control plane boundary ကြောင့် secret leakage blast radius လျှော့နိုင်သည်။ ဒါကို "လုံးဝလုံခြုံသည်" ဟုမဆိုရ။ "Logic bug တစ်ခုသည် security breach ဖြစ်မသွားစေရန် boundary ကူညီနိုင်သည်" ဟုမှတ်ရမည်။
 
 ### Scoped Filesystem — `/` ဟုမြင်သော်လည်း ကမ္ဘာမတူ
 
@@ -146,7 +156,7 @@ P-2 တွင် DeepAgents filesystem backends ကို virtual mode ဖြင
 
 Agent နှစ်ခုလုံးက `/` ဟုမြင်နိုင်သည်။ သို့သော်တကယ်မြင်သောကမ္ဘာကွဲသည်။ Supervisor ၏ `/` သည် admin scope ဖြစ်သည်။ Customer ၏ `/` သည် public docs scope ဖြစ်သည်။
 
-ဤ design မှသင်ရမည့်အချက်မှာ context boundary နှင့် tool boundary နှစ်ခုလုံးလိုခြင်းဖြစ်သည်။ Customer Agent ကို admin state မပေးသည့်အပြင် admin filesystem လည်းမပေးရ။ Context ကောင်းသော်လည်း tool scope ပျက်လျှင် boundary ပျက်နိုင်သည်။
+ဒီ design မှယူရမည့်အချက်မှာ context boundary နှင့် tool boundary နှစ်ခုလုံးလိုခြင်းဖြစ်သည်။ Customer Agent ကို admin state မပေးသည့်အပြင် admin filesystem လည်းမပေးရ။ Context ကောင်းသော်လည်း tool scope ပျက်လျှင် boundary ပျက်နိုင်သည်။
 
 ### State Projection ကိုလက်တွေ့ကြည့်ခြင်း
 

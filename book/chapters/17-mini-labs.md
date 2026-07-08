@@ -2,19 +2,21 @@
 
 ### စာဖတ်ပြီးရပ်လျှင် စာရေးတော်၏လက်ကို မမြင်ရ
 
-Agentic AI ကို စာအုပ်ဖတ်ရုံဖြင့်မကျွမ်းကျင်နိုင်။ Code ရေးရမည်။ Tool boundary စမ်းရမည်။ Prompt injection test ထည့်ရမည်။ Memory leak စမ်းရမည်။ Replan loop ကိုမိမိလက်ဖြင့်မြင်ရမည်။ သို့သော် beginner အနေဖြင့် real browser account, real cloud account, production secrets များနှင့်စမလုပ်သင့်။ Local safe lab များမှစရမည်။
+Agentic AI ကို စာအုပ်ဖတ်ရုံဖြင့်မကျွမ်းကျင်နိုင်ပါ။ Code ရေးကြည့်ရပါမည်။ Tool boundary စမ်းရပါမည်။ Prompt injection test ထည့်ကြည့်ရပါမည်။ Memory leak ဘယ်လိုဖြစ်နိုင်သလဲမြင်ရပါမည်။ Replan loop ကိုကိုယ်တိုင်လက်ဖြင့်မြင်ရပါမည်။ ဒါပေမဲ့ beginner အနေဖြင့် real browser account, real cloud account, production secrets များနှင့်မစသင့်ပါ။ Local safe lab များမှစပါ။
 
-ဤ lab များသည် production system မဟုတ်။ သင်ခန်းစာဖြစ်သည်။ Lab တစ်ခုစီတွင် pattern တစ်ခုသာမှတ်ပါ။
+ဒီ lab များသည် production system မဟုတ်ပါ။ သင်ခန်းစာများပါ။ Lab တစ်ခုစီတွင် pattern တစ်ခုသာမှတ်ပါ။
 
 ```text
 Build -> Safe Failure Test -> Fix -> Reflect
 ```
 
-Build သည် စနစ်ငယ်တစ်ခုဆောက်ခြင်းဖြစ်သည်။ Safe Failure Test သည် local/fake environment ထဲတွင်အန္တရာယ်ကိုထည့်ကြည့်ခြင်းဖြစ်သည်။ Fix ဆိုသည်မှာ boundary ထည့်ပြီး ပြန်ထိန်းခြင်းဖြစ်သည်။ Reflect ဆိုသည်မှာ ဘာသင်လိုက်သလဲကို ပြန်ရေးခြင်းဖြစ်သည်။
+Build ဆိုတာ စနစ်ငယ်တစ်ခုဆောက်ခြင်းပါ။ Safe Failure Test ဆိုတာ local/fake environment ထဲတွင်အန္တရာယ်ကိုထည့်ကြည့်ခြင်းပါ။ Fix ဆိုတာ boundary ထည့်ပြီး ပြန်ထိန်းခြင်းပါ။ Reflect ဆိုတာ ဘာသင်လိုက်သလဲကို ပြန်ရေးခြင်းပါ။
 
 ### Lab 1 — Toy Agent Loop
 
 Goal: Agent Loop ကိုအခြေခံမှနားလည်ရန်။
+
+ဒီ lab ပြီးလျှင် "tool run သွားတာ" နှင့် "task ပြီးတာ" မတူကြောင်းကိုကိုယ်တိုင်မြင်ရပါမည်။
 
 Build:
 
@@ -24,7 +26,7 @@ Build:
 
 `max_steps=5` ထားပါ။
 
-Tool result ကို message history ထဲပြန်ထည့်ပါ။
+Tool result ကို message history ထဲပြန်ထည့်ပါ။ မထည့်လျှင် model ကနောက်တစ်ဆင့်တွင်အရင် tool result ကိုမသိတော့ပါ။
 
 Safe Failure Test:
 
@@ -40,13 +42,15 @@ Empty result streak နှစ်ကြိမ်ဖြစ်လျှင် stop 
 
 Reflect:
 
-Tool run အောင်မြင်ခြင်းနှင့် task success မတူကြောင်းမှတ်ပါ။
+Tool run အောင်မြင်ခြင်းနှင့် task success မတူကြောင်းမှတ်ပါ။ Empty result ပြန်လာသော်လည်း command success ဖြစ်နိုင်သည်။
 
 Repo lesson: Travis-2 loop detection, appv22 tool guardrails.
 
 ### Lab 2 — Tool Broker
 
 Goal: Permission သည် prompt မဟုတ်ကြောင်းနားလည်ရန်။
+
+ဒီ lab ၏အဓိကအချက်က "မလုပ်နဲ့" ဟု prompt ထဲရေးခြင်းထက် broker/policy code ကတားနိုင်ရမည်ဆိုတာပါ။
 
 Build:
 
@@ -64,7 +68,7 @@ Policy:
 
 `search_docs` output ကို 2KB cap လုပ်ပါ။
 
-ဤ lab သည် local fake files ဖြင့်သာလုပ်ပါ။ Real `.env`, real credential, personal document မသုံးပါနှင့်။
+ဒီ lab ကို local fake files ဖြင့်သာလုပ်ပါ။ Real `.env`, real credential, personal document မသုံးပါနှင့်။
 
 Safe Failure Test:
 
@@ -86,6 +90,8 @@ Repo lesson: Travis-2 result quality, P-2 scoped filesystem.
 
 Goal: Tool output သည် instruction မဟုတ်ကြောင်းလက်တွေ့မြင်ရန်။
 
+ဒီ lab သည် reader review ထဲက "ဖတ်ရခက်ပြီး လက်တွေ့မလုပ်တတ်" ဆိုသောပြဿနာကိုဖြေရှင်းရန်အရေးကြီးပါသည်။ Output ထဲကစာကို data အဖြစ်ဖတ်ရမလား၊ instruction အဖြစ်လိုက်ရမလားကိုလက်တွေ့ခွဲကြည့်ပါ။
+
 Build:
 
 `docs/good.md`
@@ -94,7 +100,7 @@ Build:
 
 `docs/injected.md` ထဲတွင် previous instruction မလိုက်နာရန်ပြောသောစာတစ်ကြောင်းထည့်ပါ။
 
-ဤ lab သည် local dummy markdown files ဖြင့်သာလုပ်ပါ။ Real web page သို့မဟုတ် real user content မသုံးပါနှင့်။
+ဒီ lab ကို local dummy markdown files ဖြင့်သာလုပ်ပါ။ Real web page သို့မဟုတ် real user content မသုံးပါနှင့်။
 
 Safe Failure Test:
 
@@ -221,7 +227,7 @@ Button, form, text content ထည့်ပါ။
 
 Text ထဲတွင် malicious instruction-like sentence ထည့်ပါ။
 
-ဤ lab သည် local static HTML page ဖြင့်သာလုပ်ပါ။ Real platform account, login session, public website မသုံးပါနှင့်။
+ဒီ lab ကို local static HTML page ဖြင့်သာလုပ်ပါ။ Real platform account, login session, public website မသုံးပါနှင့်။
 
 Safe Failure Test:
 
@@ -281,7 +287,7 @@ Sample CI log file ထည့်ပါ။
 
 Failure summary ထုတ်ပါ။
 
-ဤ lab သည် fake CI log နှင့် fake secret-looking string ဖြင့်သာလုပ်ပါ။ Real CI secret, production log, customer data မသုံးပါနှင့်။
+ဒီ lab ကို fake CI log နှင့် fake secret-looking string ဖြင့်သာလုပ်ပါ။ Real CI secret, production log, customer data မသုံးပါနှင့်။
 
 Safe Failure Test:
 
@@ -331,7 +337,7 @@ v0.2 fix task ဘာရေးမလဲ။
 
 ### Lab လုံခြုံရေးစည်းကမ်းများ
 
-ဤ labs များတွင် real credentials မသုံးပါနှင့်။ Real platform account မသုံးပါနှင့်။ Real cloud mutation မလုပ်ပါနှင့်။ Local files, fake logs, dummy HTML, fake provider များဖြင့်သာစမ်းပါ။ Secret-looking strings ကို fake values သာသုံးပါ။
+ဒီ labs များတွင် real credentials မသုံးပါနှင့်။ Real platform account မသုံးပါနှင့်။ Real cloud mutation မလုပ်ပါနှင့်။ Local files, fake logs, dummy HTML, fake provider များဖြင့်သာစမ်းပါ။ Secret-looking strings ကို fake values သာသုံးပါ။
 
 ### နိဂုံး — Lab သည် စာအုပ်ကို လက်ဖြင့်ဖတ်ခြင်း
 

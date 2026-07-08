@@ -70,9 +70,13 @@ P-2 ၏ state schema mismatch lesson သည် permission design အတွက်
 
 Browser tool သည် file read tool ထက်ပိုရှုပ်သည်။ Browser သည် untrusted content ကိုဖတ်သည်။ ထို page ထဲတွင် hidden prompt injection ပါနိုင်သည်။ Button နှိပ်လျှင် external side effect ဖြစ်နိုင်သည်။ Accessibility snapshot ထဲရှိစာသားများသည် data ဖြစ်သော်လည်း model က instruction အဖြစ်မှားယုံနိုင်သည်။
 
-ထို့ကြောင့် BrowserSurfer case study တွင် browser tools ကိုအထူးသတိထားဖော်ပြရမည်။ `browser_evaluate` ကဲ့သို့သော high-risk browser evaluation tool များသည် developer အတွက်အလွန်အဆင်ပြေသော်လည်း security boundary မခိုင်ပါကအန္တရာယ်ကြီးသည်။ ဤစာအုပ်သည် browser agent ကိုအန္တရာယ်ရှိသော platform misuse workflow များသင်ရန်မဟုတ်။ Browser tool agent များကိုဘယ်လိုအန္တရာယ်မြင်ရမလဲသင်ရန်ဖြစ်သည်။
+ထို့ကြောင့် BrowserSurfer case study တွင် browser tools ကိုအထူးသတိထားဖော်ပြရမည်။ `browser_evaluate` ကဲ့သို့သော high-risk browser evaluation tool များသည် developer အတွက်အလွန်အဆင်ပြေသော်လည်း security boundary မခိုင်ပါကအန္တရာယ်ကြီးသည်။ ဒီစာအုပ်သည် browser agent ကိုအန္တရာယ်ရှိသော platform misuse workflow များသင်ရန်မဟုတ်ပါ။ Browser tool agent များကိုဘယ်လိုအန္တရာယ်မြင်ရမလဲသင်ရန်ဖြစ်သည်။
 
-Approval prompt တစ်ခုကိုစိတ်ကူးကြည့်ပါ။ Agent က "ဤ form ကို submit လုပ်မည်" ဟုဆိုသည်။ မကောင်းသော approval dialog သည် "OK?" ဟုသာမေးသည်။ ကောင်းသော approval dialog သည် "ဒီ tool သည် external website ပေါ်တွင် form submit လုပ်မည်။ Field များမှာ name, email, message ဖြစ်သည်။ Submit ပြီးလျှင် page state ပြောင်းနိုင်သည်။ Proceed လုပ်မလား" ဟုမေးသည်။ လူ့အတည်ပြုချက်ဆိုသည်မှာ button တစ်ခုနှိပ်ခြင်းမဟုတ်။ လူကဘာကိုအတည်ပြုနေသလဲနားလည်အောင်ပြခြင်းဖြစ်သည်။
+Approval prompt တစ်ခုကိုစိတ်ကူးကြည့်ပါ။ Agent က "ဤ form ကို submit လုပ်မည်" ဟုဆိုသည်။ မကောင်းသော approval dialog သည် "OK?" ဟုသာမေးသည်။
+
+ကောင်းသော approval dialog သည် "ဒီ tool သည် external website ပေါ်တွင် form submit လုပ်မည်။ Field များမှာ name, email, message ဖြစ်သည်။ Submit ပြီးလျှင် page state ပြောင်းနိုင်သည်။ Proceed လုပ်မလား" ဟုမေးသည်။
+
+လူ့အတည်ပြုချက်ဆိုသည်မှာ button တစ်ခုနှိပ်ခြင်းမဟုတ်။ လူကဘာကိုအတည်ပြုနေသလဲ နားလည်အောင်ပြခြင်းဖြစ်သည်။
 
 Browser tool အတွက် broker မေးသင့်သောမေးခွန်းများ -
 
@@ -90,7 +94,9 @@ Tool call log ရှိသလား။
 
 ### Skill များသည် Tool မဟုတ်သော်လည်း အာဏာရှိသည်
 
-Skill file တစ်ခုသည် tool မဟုတ်ဟုဆိုပြီးလုံခြုံသည်ဟုမထင်ပါနှင့်။ `SKILL.md` သည် model ကိုလုပ်နည်းပြသော instruction source ဖြစ်သည်။ Malicious skill သည် Agent ကိုလမ်းလွဲစေနိုင်သည်။ ထို့ကြောင့် Travis-2 တွင် skill signing / trusted loading idea သည်အရေးကြီးသည်။ Skill directory ဘယ်ကလာသလဲ။ Workspace skill က global skill ထက် precedence ရသလား။ Unknown skill ကို fail-closed လုပ်သလား။ Signature mismatch ဖြစ်လျှင်ဘာလုပ်မလဲ။
+Skill file တစ်ခုသည် tool မဟုတ်ဟုဆိုပြီး လုံခြုံသည်ဟုမထင်ပါနှင့်။ `SKILL.md` သည် model ကိုလုပ်နည်းပြသော instruction source ဖြစ်သည်။ Malicious skill သည် Agent ကိုလမ်းလွဲစေနိုင်သည်။
+
+ထို့ကြောင့် Travis-2 တွင် skill signing / trusted loading idea သည်အရေးကြီးသည်။ Skill directory ဘယ်ကလာသလဲ။ Workspace skill က global skill ထက် precedence ရသလား။ Unknown skill ကို fail-closed လုပ်သလား။ Signature mismatch ဖြစ်လျှင်ဘာလုပ်မလဲ။
 
 OpenClaw public discussion များတွင် skill ecosystem နှင့် local machine access ကြောင့် security warning များများထွက်လာသည်။ ဤစာအုပ်တွင်ထိုအရာကို gossip အဖြစ်မသုံး။ Lesson အဖြစ်သုံးသည်။ Agent system တွင် "instruction source" ကိုလည်း software supply chain ကဲ့သို့စစ်ရမည်။
 
@@ -108,7 +114,7 @@ Tool name | Reads what | Mutates what | External effect | Approval needed | Outp
 
 Permission design သည် Agent ကိုမယုံကြည်သောစိတ်မဟုတ်။ အလုပ်ကိုတန်ဖိုးထားသောစိတ်ဖြစ်သည်။ လူတစ်ယောက်ကိုအလုပ်ခန့်လျှင်လည်းသော့အားလုံးမပေး။ တာဝန်အလိုက်ပေးသည်။ Agent သည်လည်းထိုသို့ပင်။
 
-Tool Broker, Permission, Mutation Scope တို့သည် Agentic AI ၏လုံခြုံရေးဘောင်သာမဟုတ်။ အရည်အသွေးဘောင်လည်းဖြစ်သည်။ ဘောင်မရှိသော Agent သည်စွမ်းအားကြီးသောစာရေးတော်မဟုတ်။ မီးရှူးကိုဆွဲကိုင်ထားသောကလေးနှင့်တူသည်။ ဘောင်ရှိသော Agent သည်စွမ်းအားနည်းသွားသည်မဟုတ်။ တာဝန်ယူနိုင်သောစနစ်တစ်ခုဖြစ်လာသည်။
+Tool Broker, Permission, Mutation Scope တို့သည် Agentic AI ၏လုံခြုံရေးဘောင်သာမဟုတ်ပါ။ အရည်အသွေးဘောင်လည်းဖြစ်သည်။ ဘောင်မရှိသော Agent သည်စွမ်းအားကြီးသောစာရေးတော်မဟုတ်ပါ။ အန္တရာယ်ကိုမမြင်ဘဲအာဏာကြီးသော tool ကိုကိုင်ထားသူနှင့်တူသည်။ ဘောင်ရှိသော Agent သည်စွမ်းအားနည်းသွားခြင်းမဟုတ်ပါ။ တာဝန်ယူနိုင်သောစနစ်တစ်ခုဖြစ်လာခြင်းပါ။
 
 ---
 **စာဖတ်သူအတွက် Source Notes:**
