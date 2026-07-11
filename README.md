@@ -18,6 +18,7 @@ Current fixed/readability-reviewed chapters:
 
 - Chapters 08 to 11: runtime pattern, tool broker, observability, and safety wording cleanup
 - Chapters 12 to 15: repo-backed case study chapters rewritten for clearer practice flow
+- Chapter 13: Programmatic Tool Calling (PTC) note added with Travis-2 runtime connection
 - Chapter 16: DevOps agent thinking section clarified with safer read-only practice guidance
 - Chapter 17: mini labs expanded with clearer goals, safe failure tests, and expected results
 - Chapters 18 to 19: roadmap and references wording cleanup
